@@ -22,6 +22,7 @@ let calculationOperator = '';
 let currentNumber = '0';
 let hasil = '';
 
+
 //fungsi yang menetapkan angka yang ditekan
 const inputNumber = (number) => {
     if (currentNumber === '0') {
@@ -86,7 +87,19 @@ const calculate = () => {
     calculationOperator = '';
 }
 
-//menetapkan variabel hapus 
+let ubah = ''
+const balik = document.querySelector('.negative');
+balik.addEventListener('click', (event) => {
+    neg();
+
+    updateScreen(ubah);
+})
+
+const neg = () => {
+        ubah = currentNumber * -1;
+        currentNumber = ubah;
+    }
+    //menetapkan variabel hapus 
 const clearBtn = document.querySelector('.all-clear');
 
 //fungsi ketika tombol AC di tekan
