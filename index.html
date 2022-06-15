@@ -10,12 +10,15 @@
 </head>
 
 <body>
+    <div class="title">
+        <h1>Kalkulator Sederhana</h1>
+    </div>
     <div class="calculator">
         <input type="text" class="calculator-screen" value="0" disabled/>
         <div class="calculator-keys">
             <div class="row">
                 <button class="all-clear">AC</button>
-                <button class="delete">&larr;</button>
+                <button class="negative">-/+</button>
                 <button class="operator" value="/">&divide;</button>
             </div>
             <div class="row">
@@ -42,6 +45,10 @@
                 <button class="equal-sign">=</button>
             </div>
         </div>
+    </div>
+
+    <div class="note">
+        <p>Masih terdapat bug ketika menggunakan nilai negative/positive</p>
     </div>
     <script type="text/javascript" src="index.js"></script>
 </body>
