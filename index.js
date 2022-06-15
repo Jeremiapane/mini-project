@@ -20,10 +20,13 @@ numbers.forEach((number) => {
 let prevNumber = '';
 let calculationOperator = '';
 let currentNumber = '0';
+let hasil = '';
 
 //fungsi yang menetapkan angka yang ditekan
 const inputNumber = (number) => {
     if (currentNumber === '0') {
+        currentNumber = number;
+    } else if (currentNumber === hasil) {
         currentNumber = number;
     } else {
         currentNumber += number;
@@ -31,8 +34,10 @@ const inputNumber = (number) => {
 }
 
 
-//fungsi yang menetapkan elemen dengan kelas operator sebagai operator hitung dalam kalkulator
+//menetapkan variabel operators
 const operators = document.querySelectorAll('.operator');
+
+//fungsi ketika operator di tekan
 operators.forEach((operator) => {
     operator.addEventListener("click", (event) => {
         inputOperator(event.target.value);
@@ -54,7 +59,7 @@ const equalSign = document.querySelector('.equal-sign');
 //memberikan event/task ketika tombol = ditekan
 equalSign.addEventListener('click', () => {
     calculate();
-    updateScreen(currentNumber);
+    updateScreen(hasil);
 })
 
 //fungsi hitung
@@ -67,7 +72,7 @@ const calculate = () => {
         case '-':
             result = parseFloat(prevNumber) - parseFloat(currentNumber);
             break;
-        case '*':
+        case 'x':
             result = parseFloat(prevNumber) * parseFloat(currentNumber);
             break;
         case '/':
@@ -76,7 +81,8 @@ const calculate = () => {
         default:
             break;
     }
-    currentNumber = result;
+    hasil = result;
+    currentNumber = hasil;
     calculationOperator = '';
 }
 
